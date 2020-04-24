@@ -117,13 +117,14 @@ const App = () => {
 				</Route>
 			</header>
 			<Switch>
+				<Route exact path='/' component={HomePage}/>
+
 				<Route path='/pizza'>
 					<PizzaForm values={formValues} onInputChange={onInputChange} onCheckboxChange={onCheckboxChange} onSubmit={onSubmit} errors={formErrors}/>
 				</Route>
-
-				<Route path='/'>
+				{/* <Route path='/'>
 					<HomePage />
-				</Route>
+				</Route> */}
 			</Switch>
 		</div>
 	);
