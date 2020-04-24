@@ -67,7 +67,7 @@ const PizzaForm = props => {
 
 				<label>Special Instructions <input value={values.special} onChange={onInputChange} name='special' type='text'/></label>
 
-				<button onClick={onSubmit}>Submit Order</button>
+				<button onClick={onSubmit} name='submit'>Submit Order</button>
 			</form>
 			<button onClick={goHome}>Home</button>
 		</div>
