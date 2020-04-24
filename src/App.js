@@ -112,7 +112,7 @@ const App = () => {
 		<div>
 			<header>
 				<h1>Lambda Eats</h1>
-				<Route path='/piza'>
+				<Route path='/pizza'>
 					<Link to='/'>Home</Link>
 				</Route>
 			</header>
