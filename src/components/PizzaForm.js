@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
-// import axios from 'axios';
-// import * as yup from 'yup';
 
 const PizzaForm = props => {
 
@@ -18,19 +16,6 @@ const PizzaForm = props => {
 	const goHome = () => {
 		history.push('/');
 	}
-
-	//
-	// useEffect(() => {
-	// 	axios.get('http://localhost:3000/pizza')
-	// 		.then(res => {
-	// 			setForm(res)
-	// 		})
-	// 		.catch(err => {
-	// 			console.log('error')
-	// 		})
-	// }, [])
-	//
-	// console.log(form);
 
 	return (
 		<div className='pizza-form-container'>
@@ -75,10 +60,3 @@ const PizzaForm = props => {
 }
 
 export default PizzaForm;
-
-// A name text input field
-// Validation for name - name must be at least 2 characters
-// Dropdown form component for pizza size
-// Checklist form component for toppings - at least 4 (hint: name each separately!)
-// Text input form component for special instructions
-// An Add to Order button that submits form and returns a database record of name, pizza size, sauce, and special instructions
