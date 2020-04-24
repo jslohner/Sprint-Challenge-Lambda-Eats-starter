@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
-import * as yup from 'yup';
+// import axios from 'axios';
+// import * as yup from 'yup';
 
 const PizzaForm = props => {
 
-	const [form, setForm] = useState(null);
+	const {
+		values,
+		onInputChange,
+		onCheckboxChange,
+		onSubmit,
+		errors
+	} = props;
 
 	const history = useHistory();
 
@@ -34,10 +40,15 @@ const PizzaForm = props => {
 			<form className='pizza-form'>
 				<h3>Build</h3>
 
-				<label>Please Enter Your Name - <input name='name' type='text'/> </label>
+				<div className='errors'>
+					{<p>{errors.name}</p>}
+					{<p>{errors.size}</p>}
+				</div>
+
+				<label>Please Enter Your Name - <input value={values.name} onChange={onInputChange} name='name' type='text'/> </label>
 
 				<label>Select a Size
-					<select name='size'>
+					<select value={values.size} onChange={onInputChange} name='size'>
 						<option>Please Choose a Size</option>
 						<option>Small</option>
 						<option>Medium</option>
@@ -47,16 +58,16 @@ const PizzaForm = props => {
 
 				<div className='toppings'>
 					<p>Toppings</p>
-					<label><input name='pepperoni' type='checkbox'/>Pepperoni</label>
-					<label><input name='sausage' type='checkbox'/>Sausage</label>
-					<label><input name='bacon' type='checkbox'/>Bacon</label>
-					<label><input name='jalapenos' type='checkbox'/>Jalapenos</label>
-					<label><input name='tomatoes' type='checkbox'/>Tomatoes</label>
+					<label><input checked={values.toppings.pepperoni} onChange={onCheckboxChange} name='pepperoni' type='checkbox'/>Pepperoni</label>
+					<label><input checked={values.toppings.sausage} onChange={onCheckboxChange} name='sausage' type='checkbox'/>Sausage</label>
+					<label><input checked={values.toppings.bacon} onChange={onCheckboxChange} name='bacon' type='checkbox'/>Bacon</label>
+					<label><input checked={values.toppings.jalapenos} onChange={onCheckboxChange} name='jalapenos' type='checkbox'/>Jalapenos</label>
+					<label><input checked={values.toppings.tomatoes} onChange={onCheckboxChange} name='tomatoes' type='checkbox'/>Tomatoes</label>
 				</div>
 
-				<label>Special Instructions <input name='special' type='text'/></label>
+				<label>Special Instructions <input value={values.special} onChange={onInputChange} name='special' type='text'/></label>
 
-				<button>Submit Order</button>
+				<button onClick={onSubmit}>Submit Order</button>
 			</form>
 			<button onClick={goHome}>Home</button>
 		</div>
