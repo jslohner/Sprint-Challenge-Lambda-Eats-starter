@@ -1,12 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
+
 	return (
-		<header className='header'>
-			<h1 className='title'>Lambda Eats</h1>
+		<div className='top-content'>
 			<p>Welcome to the Lambda Eats Homepage!</p>
-			<button className='pizza-form-button'>Pizza?</button>
-		</header>
+			<Link to='/pizza'>
+				<button className='pizza-form-button'>Pizza?</button>
+			</Link>
+
+		</div>
 	);
 };
 export default HomePage;

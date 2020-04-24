@@ -1,8 +1,31 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import * as yup from 'yup';
 
 const PizzaForm = props => {
+
+	const [form, setForm] = useState(null);
+
+	const history = useHistory();
+
+	const goHome = () => {
+		history.push('/');
+	}
+
+	//
+	// useEffect(() => {
+	// 	axios.get('http://localhost:3000/pizza')
+	// 		.then(res => {
+	// 			setForm(res)
+	// 		})
+	// 		.catch(err => {
+	// 			console.log('error')
+	// 		})
+	// }, [])
+	//
+	// console.log(form);
+
 	return (
 		<div className='pizza-form-container'>
 			<div className='pizza-form-header'>
@@ -35,6 +58,7 @@ const PizzaForm = props => {
 
 				<button>Submit Order</button>
 			</form>
+			<button onClick={goHome}>Home</button>
 		</div>
 	);
 }
