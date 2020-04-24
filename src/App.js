@@ -1,11 +1,22 @@
-import React from "react";
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+
+import HomePage from './components/HomePage.js';
+import PizzaForm from './components/PizzaForm.js';
 
 const App = () => {
-  return (
-    <>
-      <h1>Lambda Eats</h1>
-      <p>You can remove this code and create your own header</p>
-    </>
-  );
+	return (
+		<div>
+			<Switch>
+				<Route path='/'>
+					<HomePage />
+				</Route>
+
+				<Route path='/pizza'>
+					<PizzaForm />
+				</Route>
+			</Switch>
+		</div>
+	);
 };
 export default App;
